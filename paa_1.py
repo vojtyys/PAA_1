@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import itertools
 import time
 from sys import argv
