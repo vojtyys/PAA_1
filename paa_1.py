@@ -31,8 +31,11 @@ def solve(ID, n, M, weights, prices):
 
 def main():
     try:
-        f = open(argv[1])
+        f = open(argv[2])
     except IndexError:
+        print('Invalid parameters')
+        exit(1)
+    except FileNotFoundError:
         print('File does not exist')
         exit(1)
 
@@ -59,7 +62,8 @@ def main():
             exit(1)
         start_time = time.time()
         price, combination = solve(ID, n, M, weights, prices)
-        print("--- %s seconds ---" % (time.time() - start_time))
+        if argv[1] == '-time':
+            print("--- Instance %s completed, time %s seconds ---" % (ID, time.time() - start_time))
         print(ID, n, price, end='')
         for x in combination:
             print(' ', x, end='')
@@ -67,7 +71,12 @@ def main():
 
 
 if __name__ == '__main__':
+    start_time = time.time()
     main()
-
-
+    try:
+        if argv[1] == '-time':
+            print("--- All instances completed, time %s seconds all ---" % (time.time() - start_time))
+    except IndexError:
+        print('Invalid parameters')
+        exit(1)
 
