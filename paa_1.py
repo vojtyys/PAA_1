@@ -64,9 +64,9 @@ def main():
         price, combination = solve(ID, n, M, weights, prices)
         if argv[1] == '-time':
             print("--- Instance %s completed, time %s seconds ---" % (ID, time.time() - start_time))
-        print(ID, n, price, end='')
+        print(ID, n, price, end=' ')
         for x in combination:
-            print(' ', x, end='')
+            print('', x, end='')
         print('')
 
 
