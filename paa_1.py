@@ -3,10 +3,15 @@ import itertools
 import time
 from sys import argv
 
+
+
 ID_pos = 0
 n_pos = 1
 M_pos = 2
 start_pos = 3
+
+
+
 
 def solve(ID, n, M, weights, prices):
     #bestWeight = 0
@@ -71,12 +76,13 @@ def main():
 
 
 if __name__ == '__main__':
-    start_time = time.time()
-    main()
     try:
-        if argv[1] == '-time':
-            print("--- All instances completed, time %s seconds all ---" % (time.time() - start_time))
+        if argv[1] != '-time' and argv[1] != '-notime':
+            print('Invalid parameters')
+            exit(1)
     except IndexError:
         print('Invalid parameters')
         exit(1)
+    main()
+
 
